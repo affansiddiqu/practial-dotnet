@@ -1,0 +1,17 @@
+﻿@{
+    ASP.NET_Core_MVC_Practical.Models.MovieContext context = new ASP.NET_Core_MVC_Practical.Models.MovieContext();
+    int count =  context.Movies.Count();
+    int pagenums = (int)Math.Ceiling(count / (double)3);
+    string activeLink = "active";
+}
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        
+        @for (int i = 1; i <= pagenums; i++)
+        {
+            
+            
+        <li class="page-item p-1"><a class="page-link @activeLink" asp-action="Index" asp-controller="Movies" asp-route-pageno="@i">@i</a></li>  
+        }
+    </ul>
+</nav>
